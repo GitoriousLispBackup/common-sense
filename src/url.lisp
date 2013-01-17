@@ -17,10 +17,18 @@
 ;;; Copyright 2013 Gordon Quad
 ;;;
 
-(defpackage #:common-sense
-  (:use #:qt #:iterate #:alexandria #:cl #:bordeaux-threads)
-  (:export
-   #:main))
+(in-package :common-sense)
 
-(qt:ensure-smoke "qtwebkit")
+(enable-syntax)
+
+(defclass url ()
+  ()
+  (:metaclass qt-class)
+  (:qt-superclass "QUrl"))
+
+(defmethod initialize-instance :after ((instance url)
+                                       &key parent)
+  (if parent
+      (new instance parent)
+      (new instance)))
 

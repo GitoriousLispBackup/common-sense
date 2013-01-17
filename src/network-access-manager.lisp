@@ -17,10 +17,19 @@
 ;;; Copyright 2013 Gordon Quad
 ;;;
 
-(defpackage #:common-sense
-  (:use #:qt #:iterate #:alexandria #:cl #:bordeaux-threads)
-  (:export
-   #:main))
+(in-package :common-sense)
 
-(qt:ensure-smoke "qtwebkit")
+(enable-syntax)
 
+(defvar *network-access-manager-class* 'network-access-manager)
+
+(defclass network-access-manager ()
+  ()
+  (:metaclass qt-class)
+  (:qt-superclass "QNetworkAccessManager"))
+
+(defmethod initialize-instance :after ((instance network-access-manager)
+                                       &key parent)
+  (if parent
+      (new instance parent)
+      (new instance)))

@@ -26,5 +26,13 @@
                         :pathname #p"src/"
                         :components
                         ((:file "package")
-                         (:file "web-widget" :depends-on ("package"))))))
+                         (:file "enum-converter" :depends-on ("package"))
+                         (:file "url" :depends-on ("package" "enum-converter"))
+                         (:file "network-access-manager" :depends-on ("package" "enum-converter"))
+                         (:file "proxy-factory" :depends-on ("package" "enum-converter"))
+                         (:file "web-widget" :depends-on ("package"
+                                                          "enum-converter"
+                                                          "url"
+                                                          "network-access-manager"
+                                                          "proxy-factory"))))))
 

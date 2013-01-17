@@ -17,10 +17,19 @@
 ;;; Copyright 2013 Gordon Quad
 ;;;
 
-(defpackage #:common-sense
-  (:use #:qt #:iterate #:alexandria #:cl #:bordeaux-threads)
-  (:export
-   #:main))
+(in-package :common-sense)
 
-(qt:ensure-smoke "qtwebkit")
+(enable-syntax)
 
+(defvar *proxy-factory-class* nil)
+
+(defclass proxy-factory ()
+  ()
+  (:metaclass qt-class)
+  (:qt-superclass "QProxyFactory"))
+
+(defmethod initialize-instance :after ((instance proxy-factory)
+                                       &key parent)
+  (if parent
+      (new instance parent)
+      (new instance)))
