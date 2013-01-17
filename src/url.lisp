@@ -32,3 +32,36 @@
       (new instance parent)
       (new instance)))
 
+(defgeneric supported-content-types (ww)
+  (:documentation "")
+  (:method ((ww web-widget))
+    (#_supportedContentTypes (page ww))))
+
+(defgeneric error-string (url)
+  (:documentation "")
+  (:method ((url url))
+    (#_errorString url)))
+
+errorString
+fromUserInput
+fragment/setFragment
+hasFragment
+hasQuery
+hasQueryItem
+host/setHost
+isEmpty
+isLocalFile
+isParentOf
+isValid
+isRelative
+password/setPassword
+path/setPath
+port/setPort
+scheme/setScheme
+queryItemValue
+removeAllQueryItems
+resolved
+authory/setAuthory
+userinfo/setUserinfo
+userName/setUserName
+url/setUrl
