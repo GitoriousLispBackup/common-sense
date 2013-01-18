@@ -21,15 +21,21 @@
 
 (enable-syntax)
 
-(defvar *proxy-factory-class* nil)
+(defvar *proxy-factory-class* 'proxy-factory)
 
 (defclass proxy-factory ()
   ()
+  (:documentation "Class wrapper for QProxyFactory that creates proxies in per-URL based form")
   (:metaclass qt-class)
-  (:qt-superclass "QProxyFactory"))
+  (:qt-superclass "QNetworkProxyFactory")
+  (:override ("queryProxy" query-proxy)))
 
 (defmethod initialize-instance :after ((instance proxy-factory)
                                        &key parent)
   (if parent
       (new instance parent)
       (new instance)))
+
+(defmethod query-proxy ((pf proxy-factory) query)
+  ;; Put a dummy here
+  (#_systemProxyForQuery pf query))
