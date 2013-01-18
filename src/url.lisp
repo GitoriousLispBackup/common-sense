@@ -81,11 +81,10 @@
 
 (defgeneric resolved (url relative)
   (:documentation "Resolve URL by the relative part")
-  (:method ((url url))
+  (:method ((url url) relative)
     (make-instance 'url :pointer (qt::qobject-pointer (#_resolved url relative)))))
 
 ;; queryItems waiting for QPair marshalling
-;; Encoded
 
 (defgeneric remove-all-query-items (url item &key encoded)
   (:documentation "Remove all query items that match with specified name")
@@ -232,3 +231,27 @@
         (#_setEncodedUrl url value)
         (#_setUrl url value))))
 
+(defgeneric top-level-domain (url)
+  (:documentation "Returns top-level domain of URL")
+  (:method ((url url))
+    (#_topLevelDomain url)))
+
+(defgeneric query-value-delimiter (url)
+  (:documentation "Returns value delimiter used in query in URL")
+  (:method ((url url))
+    (#_queryValueDelimiter url)))
+
+(defgeneric (setf query-value-delimiter) (value url)
+  (:documentation "Sets value delimiter used in query in URL")
+  (:method (value (url url))
+    (#_setQueryDelimiters value (#_queryPairDelimiter url))))
+
+(defgeneric query-pair-delimiter (url)
+  (:documentation "Returns pair delimiter used in query in URL")
+  (:method ((url url))
+    (#_queryPairDelimiter url)))
+
+(defgeneric (setf query-pair-delimiter) (value url)
+  (:documentation "Sets pair delimiter used in query in URL")
+  (:method (value (url url))
+    (#_setQueryDelimiters (#_queryValueDelimiter url) value)))
