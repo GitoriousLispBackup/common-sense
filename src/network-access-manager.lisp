@@ -18,8 +18,7 @@
 ;;;
 
 (in-package :common-sense)
-
-(qt:enable-syntax)
+(in-readtable :qt)
 
 (defvar *network-access-manager-class* 'network-access-manager)
 

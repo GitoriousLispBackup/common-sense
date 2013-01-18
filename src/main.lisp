@@ -18,8 +18,7 @@
 ;;;
 
 (in-package :common-sense)
-
-(qt:enable-syntax)
+(in-readtable :qt)
 
 (defvar *qapp*)
 
@@ -55,4 +54,3 @@
                      (unwind-protect
                           (#_exec *qapp*)
                        (#_hide window))))))
-

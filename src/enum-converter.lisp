@@ -18,8 +18,7 @@
 ;;;
 
 (in-package :common-sense)
-
-(qt:enable-syntax)
+(in-readtable :qt)
 
 (defvar *enum-value-hash* (alexandria:plist-hash-table
                            '( ;; Web Attributes
@@ -56,3 +55,11 @@
 (defun qt-value (symb)
   (gethash symb *enum-value-hash* -1))
 
+(set-macro-character #\€ (lambda (s c)
+                           (declare (ignore c))
+                           (list 'list (read s t nil t))))
+
+(set-macro-character #\[ (lambda (s c)
+                           (declare (ignore c))
+                           (list* 'list (read-delimited-list #\] s t))))
+(set-macro-character #\] (get-macro-character #\) nil))

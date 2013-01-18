@@ -18,8 +18,7 @@
 ;;;
 
 (in-package :common-sense)
-
-(qt:enable-syntax)
+(in-readtable :qt)
 
 (defvar *proxy-factory-class* 'proxy-factory)
 

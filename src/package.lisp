@@ -18,10 +18,14 @@
 ;;;
 
 (defpackage #:common-sense
-  (:use #:qt #:iterate #:alexandria #:cl #:bordeaux-threads)
+  (:use #:cl
+        #:qt
+        #:iterate
+        #:alexandria
+        #:bordeaux-threads
+        #:named-readtables)
   (:export
    #:main))
 
 (qt:ensure-smoke "qtwebkit")
 (qt:ensure-smoke "qtnetwork")
-

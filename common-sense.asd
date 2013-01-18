@@ -21,7 +21,10 @@
   :version "0.1.0"
   :licence "GPLv3"
   :author "Gordon Quad <gordon@niflheim.info"
-  :depends-on (:alexandria :iterate :qt :bordeaux-threads)
+  :depends-on (:qt
+               :alexandria
+               :iterate
+               :bordeaux-threads)
   :components ((:module src
                         :pathname #p"src/"
                         :components
@@ -35,4 +38,3 @@
                                                           "url"
                                                           "network-access-manager"
                                                           "proxy-factory"))))))
-
