@@ -19,10 +19,11 @@
 
 (in-package :common-sense)
 
-(enable-syntax)
+(qt:enable-syntax)
 
 (defclass url ()
   ()
+  (:documentation "QUrl wrapper for CLOS")
   (:metaclass qt-class)
   (:qt-superclass "QUrl"))
 

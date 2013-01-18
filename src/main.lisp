@@ -19,8 +19,7 @@
 
 (in-package :common-sense)
 
-(enable-syntax)
-(ensure-smoke "qtwebkit")
+(qt:enable-syntax)
 
 (defvar *qapp*)
 

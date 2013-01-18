@@ -19,7 +19,7 @@
 
 (in-package :common-sense)
 
-(enable-syntax)
+(qt:enable-syntax)
 
 (defvar *proxy-factory-class* 'proxy-factory)
 

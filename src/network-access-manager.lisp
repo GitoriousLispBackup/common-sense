@@ -19,7 +19,7 @@
 
 (in-package :common-sense)
 
-(enable-syntax)
+(qt:enable-syntax)
 
 (defvar *network-access-manager-class* 'network-access-manager)
 

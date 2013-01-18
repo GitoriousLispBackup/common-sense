@@ -19,7 +19,7 @@
 
 (in-package :common-sense)
 
-(enable-syntax)
+(qt:enable-syntax)
 
 (defvar *enum-value-hash* (alexandria:plist-hash-table
                            '( ;; Web Attributes
