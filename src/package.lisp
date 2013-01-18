@@ -23,4 +23,5 @@
    #:main))
 
 (qt:ensure-smoke "qtwebkit")
+(qt:ensure-smoke "qtnetwork")
 
